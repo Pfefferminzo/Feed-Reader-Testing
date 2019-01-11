@@ -26,12 +26,6 @@ $(function() {
             expect(allFeeds.length).not.toBe(0);
         });
 
-
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a URL defined
-         * and that the URL is not empty.
-         */
-
          it('all feeds have an URL', function() {
              allFeeds.forEach( function (item) {
                  expect(item.url).not.toBe('');
@@ -39,11 +33,6 @@ $(function() {
              })
          });
 
-
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a name defined
-         * and that the name is not empty.
-         */
 
         it('all feeds have a name', function() {
             allFeeds.forEach( function (item) {
@@ -62,9 +51,10 @@ $(function() {
          * hiding/showing of the menu element.
          */
          it(' element is hidden by default', function() {
-             const slideMenu = document.getElementsByClassName('slide-menu');
-             const ss = slideMenu.css;
-             expect(slideMenu.css('transform')).toEqual('translate3d(-12em, 0, 0)');
+            const element = document.querySelector('.slide-menu');
+             const style = getComputedStyle(element)
+             console.log(style.transform);
+             expect(style.transform).toEqual('matrix(1, 0, 0, 1, -192, 0)');
          });
          /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
